@@ -10,19 +10,22 @@
 	<!-- BEGIN CSS -->
 	<style>
 		/* TODO 1 */
-		.box {
-			width: 70px;
-			height: 70px;
-			background-color: teal;
-			font-size: 300%;
-			text-align: center;
-			display: block;
-			position: absolute;
-			top: 100px;
-			left: 0px;
+		.box{
+	    width: 70px;
+		height: 70px;
+		background-color: teal;
+		font-size: 300%;
+		text-align: center;
+		display: block;
+		position: absolute;
+		top: 100px;
+		left: 0px;
 		}
+		body{
+		background: blue;
+	}
 	</style>
-
+	
 </head>
 <body class="board">
 	<!-- HTML for the box -->
@@ -31,18 +34,17 @@
 	<!-- BEGIN JAVASCRIPT -->
 	<script>
 		(function(){
-			'use strict'
+			'use strict';
 			/* global jQuery */
 
 			// jQuery stuff setup for you
 			var box = jQuery('.box');
+			var boardHeight = jQuery(window).height();
 			var boardWidth = jQuery('.board').width();
-	
-			// TODO 2
-			var position;       // reference for the x-coordinate of our box
-			var points;         // reference for the points displayed on the box
-			var speed;          // reference for how fast the box moves
-			var direction       // reference for the direction the box is moving: 1 means right, -1 means left
+			var position; // reference for the x-coordinate of our box
+			var points;   // reference for the points displayed on the box
+			var speed;    // reference for how fast the box moves
+			var direction; // reference for the direction the box is moving: 1 means right, -1 means left
 
 			position = 0;
 			points = 0;
@@ -52,7 +54,7 @@
 			box.text(points);               // changes the text of the box to display the value of <points>
 			
 			function update() {
-				// TODO 3 / 6 / 7 / 8
+				
 				 position += speed * direction;    // increment position by speed on every update
 				console.log("new position: " + position);
 				
@@ -66,8 +68,16 @@
 					direction = 1;
 					position === 0;
 				}
-				
-				box.css('background-color', "rgb(<red>, <green>, <blue>")
+				if (position > boardHeight) {
+        		console.log("Top Wall Hit");
+        		direction = 1;
+        		console.log(direction);
+    			}
+				if (position > boardHeight) {
+        		console.log("Bottom Wall Hit");
+        		direction = -1;
+        		console.log(direction);
+				}
 				box.css('left', position);      // set the 'left' CSS property of the box to the new value of position
 			}
 				
