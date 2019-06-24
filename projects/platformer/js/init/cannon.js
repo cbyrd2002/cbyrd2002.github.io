@@ -19,16 +19,11 @@
         ////////////////////////////////////////////////////////////////////////
         // ALL YOUR CODE GOES BELOW HERE ///////////////////////////////////////
         
-        // example: 
-        cannon.create.onTop(50);
-        cannon.create.onBottom(100);
-        cannon.create.onLeft(150);
-        cannon.create.onRight(200);
-        cannon.create.onTop(100);
-        cannon.create.onBottom(200);
+        // example:
+        cannon.create.onTop(300);
+        cannon.create.onBottom(300);
         cannon.create.onLeft(300);
-        cannon.create.onRight(400);
-       
+        cannon.create.onRight(300);
         
       
         // ALL YOUR CODE GOES ABOVE HERE ///////////////////////////////////////
